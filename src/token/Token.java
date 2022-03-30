@@ -40,6 +40,35 @@ public class Token {
 		keywords.put("return", RETURN);
 	}
 	
+	public Token(String tokenType, Character ch) {
+		this.Type = tokenType;
+		this.Literal = ch.toString();
+	}
+	
+	public void setToken(final String tokenType) {
+		this.Type = tokenType;		
+	}
+	
+	public String getToken() {
+		return this.Type;
+	}
+	
+	public void setLiteral(final Character ch) {
+		this.Literal = ch.toString();
+	}
+	
+	public void setLiteral(final String str) {
+		this.Literal = str;
+	}
+	
+	public String getLiteral() {
+		return this.Literal;
+	}
+	
+	public String lookUpIdent(final String ident) {
+		return (keywords.get(ident) == NULL) ? this.IDENT : keywords.get(ident);
+	}
+	
 	// Estados
 	public static final String ILLEGAL = "ILLEGAL";
 	public static final String EOF = "EOF";
